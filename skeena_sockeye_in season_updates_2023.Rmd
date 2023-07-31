@@ -232,7 +232,7 @@ fence$Date<-as.Date(fence$Date)
 
 # Babine Fence
 
-\FloatBarrier
+<!-- \FloatBarrier -->
 
 ```{r fence summary table,echo=FALSE,results='asis'}
 i<-match(fence.day,fence$Date)
@@ -277,13 +277,13 @@ b2<-ggplot(fencecum,aes(x=Date,y=`Number of Sockeye`,color=Type,linetype=lt))+
 
 ```
 
-```{r combined fence plot,fig.height=6,echo=FALSE,warning=FALSE,fig.cap="Top panel: Total run to Babine fence for 2022 compared to 2014 (recent highest year) and the average from 2011-2021. Bottom panel: Cumulative estimated run to the Babine fence for 2022, 2014 (recent highest year) and the average from 2011-2021."}
+```{r combined fence plot,fig.height=5.5,echo=FALSE,warning=FALSE,fig.cap="Top panel: Total run to Babine fence for 2022 compared to 2014 (recent highest year) and the average from 2011-2021. Bottom panel: Cumulative estimated run to the Babine fence for 2022, 2014 (recent highest year) and the average from 2011-2021."}
 
 ggarrange(b1,b2,ncol=1,align="v",common.legend = TRUE)
 
 ```
 
-\FloatBarrier
+<!-- \FloatBarrier -->
 
 \newpage
 
