@@ -228,7 +228,7 @@ fence<-read_excel("data/tyee and catch and fence in-season updates 2023.xlsx",sh
 fence$Date<-as.Date(fence$Date)
 ```
 
-\newpage
+\clearpage
 
 # Babine Fence
 
@@ -240,7 +240,7 @@ cumjacks<-fence$cumjacks[i]
 
 stat2<-data.frame(`Babine Fence`=c("Large Sockeye","Jacks"),`Total Run`=c(totalrun,cumjacks))
 
-kable(stat2,caption=paste0("Cumulative large sockeye and jacks to Babine River fence to ",fence.date,"."))
+kable(stat2,caption=paste0("Cumulative large sockeye and jacks to Babine River fence to ",fence.date,".")) %>% kable_styling(latex_options = "HOLD_position")
 
 ```
 
@@ -460,7 +460,7 @@ total.row<-tibble(Nation="Total","Total Demo Sockeye Catch"=total.demo.catch)
 demo.table<-rbind(demo.totals,total.row)
 
 kable(demo.table,caption="Total Area 4 First Nations demo catches of sockeye.")%>%
-  row_spec(3,hline_after=T)
+  row_spec(3,hline_after=T) %>% kable_styling(latex_options = "HOLD_position")
 
 ggplot(demo.data,aes(x=date,y=pieces,fill=nation))+
   geom_col()+
