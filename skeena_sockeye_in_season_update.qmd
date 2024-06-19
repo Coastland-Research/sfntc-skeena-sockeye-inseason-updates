@@ -1,37 +1,8 @@
 ---
-title: |
-  | Skeena Sockeye In Season Update
-  | for SFNTC
-date: "`r format(Sys.time(), '%d %B, %Y')`"
-output:
-  pdf_document:
-    
-    fig_caption: yes
-  html_notebook: default
-geometry: "left=3cm,right=3cm,top=2cm,bottom=2cm"
-editor_options:
-  chunk_output_type: console
-header-includes:
-  - \usepackage{placeins}
-  - \usepackage[justification=raggedright,labelfont=bf,singlelinecheck=false]{caption}
-knit: (function(input, ...) {
-    rmarkdown::render(
-      input,
-      output_file = paste0(
-        xfun::sans_ext(basename(input)), '-', Sys.Date(), '.pdf'
-      ),
-      envir = globalenv()
-    )
-  })
+title: "Skeena Sockeye In Season Update for SFNTC"
+format: html
+editor: visual
 ---
----
-
----
-
-```{r setup options,echo=FALSE}
-knitr::opts_chunk$set(warning = FALSE, message = FALSE,echo=FALSE) 
-
-```
 
 ```{r load libraries, include=FALSE}
 library(tidyverse)
@@ -58,25 +29,25 @@ fence.date<-"August 1"
 
 # Summary
 
-- Cumulative total escapement of 1,122,420 past Tyee to date (Table 1, Figure 1). Run would be about 52% through on late timing, 72% on average timing, and 85% if the run is early. Estimated TRTC is ~ 1.339M although this does not include marine FSC catch.
+-   Cumulative total escapement of 1,122,420 past Tyee to date (Table 1, Figure 1). Run would be about 52% through on late timing, 72% on average timing, and 85% if the run is early. Estimated TRTC is \~ 1.339M although this does not include marine FSC catch.
 
-- Continued low daily Tyee estimates and catches in the marine fishery are concerning, with indications for a potentially early, and lower than expected run (Figure 2). Well below average daily estimates through Tyee.
+-   Continued low daily Tyee estimates and catches in the marine fishery are concerning, with indications for a potentially early, and lower than expected run (Figure 2). Well below average daily estimates through Tyee.
 
-- Now after peak (on average timing), however the simple Tyee run-timing model estimate continues to fall with the below average daily counts, suggesting runs of ~ 1.85M (average run-timing), 1.6M (early run-timing), 2.4M (late run-timing) (Figure 3).
+-   Now after peak (on average timing), however the simple Tyee run-timing model estimate continues to fall with the below average daily counts, suggesting runs of \~ 1.85M (average run-timing), 1.6M (early run-timing), 2.4M (late run-timing) (Figure 3).
 
-- Babine fence is operational with 192,702 large sockeye estimated through to date (and 4,167 jacks) (Figure 4, Figure 6). Some early sockeye were missed due to delay in opening from wildfires.
+-   Babine fence is operational with 192,702 large sockeye estimated through to date (and 4,167 jacks) (Figure 4, Figure 6). Some early sockeye were missed due to delay in opening from wildfires.
 
-- Tyee comparison with Babine fence counts (Figure 5) is very early, although some indications that fish are missing from the Babine fence. This is likely mostly missed fish before the fence was operational. Low Skeena discharge may be making migration timing faster than usual, which would have the opposite effect. A coarse estimate of in-rover FSC and demo catches when they occur are included in the comparison.
+-   Tyee comparison with Babine fence counts (Figure 5) is very early, although some indications that fish are missing from the Babine fence. This is likely mostly missed fish before the fence was operational. Low Skeena discharge may be making migration timing faster than usual, which would have the opposite effect. A coarse estimate of in-rover FSC and demo catches when they occur are included in the comparison.
 
-- Marine and in-river sockeye Section 35(1) fisheries ongoing.
+-   Marine and in-river sockeye Section 35(1) fisheries ongoing.
 
-- Area 4 commercial gillnet fishery last opening was July 31/August 1, seines completed their second opening, and FNs marine demo fisheries were open again last week and are open again this week with small allocations. Total gillnet and seine catch to date ~ 235k. Total marine demo catch ~11,013 but missing some catch numbers (Table 4, Figure 9).
+-   Area 4 commercial gillnet fishery last opening was July 31/August 1, seines completed their second opening, and FNs marine demo fisheries were open again last week and are open again this week with small allocations. Total gillnet and seine catch to date \~ 235k. Total marine demo catch \~11,013 but missing some catch numbers (Table 4, Figure 9).
 
-- Recreational fishing trigger of 1,000,000 has been passed triggering sockeye directed recreational fisheries with a daily limit of 2 on the Skeena, Babine River and Babine Lake. The next trigger (1.0M) likely to be exceeded shortly. Retention of 4 sockeye daily opening on July 25 in Areas 3-5 (marine). LBN has closed Babine River near fence to recreational angling. Marine areas 3-5 are open to sockeye with daily limit of 4.
+-   Recreational fishing trigger of 1,000,000 has been passed triggering sockeye directed recreational fisheries with a daily limit of 2 on the Skeena, Babine River and Babine Lake. The next trigger (1.0M) likely to be exceeded shortly. Retention of 4 sockeye daily opening on July 25 in Areas 3-5 (marine). LBN has closed Babine River near fence to recreational angling. Marine areas 3-5 are open to sockeye with daily limit of 4.
 
-- Appendix A includes information on the other species caught in the Area 4 commercial fishery and CPUEs.
+-   Appendix A includes information on the other species caught in the Area 4 commercial fishery and CPUEs.
 
-- Appendix B includes information on run-timing of specific Skeena Conservation Units/stocks.
+-   Appendix B includes information on run-timing of specific Skeena Conservation Units/stocks.
 
 \newpage
 
@@ -221,8 +192,6 @@ ggplot(tyeemodel,aes(x=Date,y=`Number of Sockeye`,color=Timing))+
   theme(legend.position = "top")
 ```
 
-
-
 ```{r load fence data,echo=FALSE,results='asis'}
 fence<-read_excel("data/tyee and catch and fence in-season updates 2023.xlsx",sheet="Babine")
 fence$Date<-as.Date(fence$Date)
@@ -356,7 +325,6 @@ ggplot(comp,aes(x=Date,y=Fish,color=Count,size=Count,linetype=Count))+
 ```
 
 \newpage
-
 
 ```{r hcr,echo=FALSE,warning=FALSE}
 
@@ -530,7 +498,6 @@ ggplot(oc2,aes(x=Date,y=Catch,color=gear))+
 
 ```
 
-
 ```{r other species gillnet cpue,fig.height=7,echo=FALSE,message=FALSE,warning=FALSE,fig.cap="CPUE of other species caught and released (coho, chinook, chum and steelhead), or kept (pinks) by gillnets."}
 gncpue<-oc2%>%filter(gear=="gillnet")
 
@@ -543,9 +510,10 @@ ggplot(gncpue,aes(x=Date,y=cpue))+
   theme(legend.position="top")
 ```
 
+```{=tex}
 \FloatBarrier
 \newpage
-
+```
 ```{r other species seine cpue,fig.height=7,echo=FALSE,message=FALSE,warning=FALSE,fig.cap="CPUE of other species caught and released (coho, chinook, chum and steelhead), or kept (pinks) by seines."}
 sncpue<-oc2%>%filter(gear=="seine")
 
@@ -558,9 +526,10 @@ ggplot(sncpue,aes(x=Date,y=cpue))+
   theme(legend.position="top")
 ```
 
+```{=tex}
 \FloatBarrier
 \newpage
-
+```
 ```{r other species total catch by gear,fig.height=6,echo=FALSE,message=FALSE,warning=FALSE,fig.cap="Total catch of other species caught and kept or released (coho, pinks, chinook, chum and steelhead) by gillnets and seines in the marine Area 4 commercial fishery."}
 
 oc.total<-oc2%>%group_by(gear,Species=sp,dis)%>%summarise(total=sum(Catch,na.rm=TRUE))
@@ -581,19 +550,20 @@ ggplot(oc.total,aes(x=Species,y=total,fill=gear))+
 
 ```
 
+```{=tex}
 \FloatBarrier
 \newpage
 \newpage
-
+```
 # Appendix B-Population specific run-timing through Tyee
 
 Notes:
 
-- Based on NBRR update data (2000-2014) provided by Karl English July 2022. Will add in the newer data and some comparisons.
+-   Based on NBRR update data (2000-2014) provided by Karl English July 2022. Will add in the newer data and some comparisons.
 
-- These are average run-timings.
+-   These are average run-timings.
 
-- Explorations on the differences between the average and ANNUAL run-timing standard deviations are underway for stocks with appropriate sample size.
+-   Explorations on the differences between the average and ANNUAL run-timing standard deviations are underway for stocks with appropriate sample size.
 
 ```{r,echo=FALSE,include=FALSE,warning=FALSE,message=FALSE}
 
